@@ -225,12 +225,10 @@ metrics:
       # -- Metrics to keep. Can use regex. An empty list means keep all.
       includeMetrics:
         [
-          {
-            "kube_persistentvolume_capacity_bytes",
-            "kube_persistentvolume_status_phase",
-            "kube_persistentvolumeclaim_info",
-            "kube_persistentvolumeclaim_resource_requests_storage_bytes",
-          },
+          "kube_persistentvolume_capacity_bytes",
+          "kube_persistentvolume_status_phase",
+          "kube_persistentvolumeclaim_info",
+          "kube_persistentvolumeclaim_resource_requests_storage_bytes",
         ]
       # -- Metrics to drop. Can use regex.
       excludeMetrics: []
