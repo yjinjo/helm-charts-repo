@@ -1,0 +1,69 @@
+{{ define "agent.config.pod_monitors" }}
+// Prometheus Operator PodMonitor objects
+prometheus.operator.podmonitors "pod_monitors" {
+  namespaces = {{ .Values.metrics.podMonitors.namespaces | toJson }}
+  forward_to = [prometheus.relabel.podmonitors.receiver]
+{{- if (index .Values "grafana-agent").agent.clustering.enabled }}
+  clustering {
+    enabled = true
+  }
+{{- end }}
+  scrape {
+    default_scrape_interval = {{ .Values.metrics.podMonitors.scrapeInterval | default .Values.metrics.scrapeInterval | quote }}
+  }
+}
+
+prometheus.relabel "podmonitors" {
+{{- if .Values.metrics.podMonitors.extraMetricRelabelingRules }}
+{{ .Values.metrics.podMonitors.extraMetricRelabelingRules | indent 2 }}
+{{- end }}
+  forward_to = [prometheus.relabel.metrics_service.receiver]
+}
+{{ end }}
+
+{{ define "agent.config.probes" }}
+// Prometheus Operator Probe objects
+prometheus.operator.probes "probes" {
+  namespaces = {{ .Values.metrics.probes.namespaces | toJson }}
+  forward_to = [prometheus.relabel.probes.receiver]
+{{- if (index .Values "grafana-agent").agent.clustering.enabled }}
+  clustering {
+    enabled = true
+  }
+{{- end }}
+  scrape {
+    default_scrape_interval = {{ .Values.metrics.probes.scrapeInterval | default .Values.metrics.scrapeInterval | quote }}
+  }
+}
+
+prometheus.relabel "probes" {
+{{- if .Values.metrics.probes.extraMetricRelabelingRules }}
+{{ .Values.metrics.probes.extraMetricRelabelingRules | indent 2 }}
+{{- end }}
+  forward_to = [prometheus.relabel.metrics_service.receiver]
+}
+{{ end }}
+
+
+{{ define "agent.config.service_monitors" }}
+// Prometheus Operator ServiceMonitor objects
+prometheus.operator.servicemonitors "service_monitors" {
+  namespaces = {{ .Values.metrics.serviceMonitors.namespaces | toJson }}
+  forward_to = [prometheus.relabel.servicemonitors.receiver]
+{{- if (index .Values "grafana-agent").agent.clustering.enabled }}
+  clustering {
+    enabled = true
+  }
+{{- end }}
+  scrape {
+    default_scrape_interval = {{ .Values.metrics.serviceMonitors.scrapeInterval | default .Values.metrics.scrapeInterval | quote }}
+  }
+}
+
+prometheus.relabel "servicemonitors" {
+{{- if .Values.metrics.serviceMonitors.extraMetricRelabelingRules }}
+{{ .Values.metrics.serviceMonitors.extraMetricRelabelingRules | indent 2 }}
+{{- end }}
+  forward_to = [prometheus.relabel.metrics_service.receiver]
+}
+{{ end }}

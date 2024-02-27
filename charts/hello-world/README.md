@@ -1,1 +1,0 @@
-# sikalabs/hello-world
