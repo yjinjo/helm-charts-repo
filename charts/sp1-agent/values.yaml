@@ -867,7 +867,7 @@ kube-state-metrics:
   # -- Should this helm chart deploy Kube State Metrics to the cluster.
   # Set this to false if your cluster already has Kube State Metrics, or if you
   # do not want to scrape metrics from Kube State Metrics.
-  enabled: false
+  enabled: true
   # @ignored
   nodeSelector:
     kubernetes.io/os: linux
@@ -888,7 +888,7 @@ prometheus-node-exporter:
   # -- Should this helm chart deploy Node Exporter to the cluster.
   # Set this to false if your cluster already has Node Exporter, or if you do
   # not want to scrape metrics from Node Exporter.
-  enabled: false
+  enabled: true
   # @ignored - Only select Linux nodes
   nodeSelector:
     kubernetes.io/os: linux
