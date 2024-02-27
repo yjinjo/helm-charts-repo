@@ -1058,7 +1058,7 @@ grafana-agent-events:
   agent:
     # This chart is creating the configuration, so the grafana-agent chart does
     # not need to.
-    configMap: { create: false }
+    configMap: { create: true }
 
   controller:
     type: deployment
@@ -1083,7 +1083,7 @@ grafana-agent-logs:
 
     mounts:
       # Mount /var/log from the host into the container for log collection.
-      varlog: true
+      varlog: false
       # Mount /var/lib/docker/containers from the host into the container for log
       # collection. Set to true if your cluster puts log files inside this directory.
       dockercontainers: false
