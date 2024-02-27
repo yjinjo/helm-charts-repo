@@ -27,7 +27,7 @@ externalServices:
     # -- Prometheus metrics query endpoint. Preset for Grafana Cloud Metrics instances.
     queryEndpoint: /api/prom/api/v1/query
     # -- Prometheus metrics write endpoint. Preset for Grafana Cloud Metrics instances.
-    writeEndpoint: /api/v1/push
+    writeEndpoint: /api/prom/push
     # -- Custom labels to be added to all time series
     externalLabels: {}
     # -- Rule blocks to be added to the [write_relabel_config block](https://grafana.com/docs/agent/latest/flow/reference/components/prometheus.remote_write/#write_relabel_config-block) of the prometheus.remote_write component.
@@ -867,7 +867,7 @@ kube-state-metrics:
   # -- Should this helm chart deploy Kube State Metrics to the cluster.
   # Set this to false if your cluster already has Kube State Metrics, or if you
   # do not want to scrape metrics from Kube State Metrics.
-  enabled: false
+  enabled: true
   # @ignored
   nodeSelector:
     kubernetes.io/os: linux
@@ -888,7 +888,7 @@ prometheus-node-exporter:
   # -- Should this helm chart deploy Node Exporter to the cluster.
   # Set this to false if your cluster already has Node Exporter, or if you do
   # not want to scrape metrics from Node Exporter.
-  enabled: true
+  enabled: false
   # @ignored - Only select Linux nodes
   nodeSelector:
     kubernetes.io/os: linux
