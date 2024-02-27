@@ -3,7 +3,7 @@ entries:
   k8s-monitoring:
   - apiVersion: v2
     appVersion: 2.0.2
-    created: "2024-02-27T10:14:23.812914595Z"
+    created: "2024-02-27T10:37:29.170506378Z"
     dependencies:
     - name: grafana-agent
       repository: https://grafana.github.io/helm-charts
@@ -40,7 +40,7 @@ entries:
       version: 1.28.0
     description: A Helm chart for gathering, scraping, and forwarding Kubernetes infrastructure
       metrics and logs to a Grafana Stack.
-    digest: ac0379001f2aaa8d2bda56de4a3a24ff9940862814659ae88f785fa65b2411eb
+    digest: 1b26db5c1eacc7f1b168d2f1b040b72995f05bbf2dc64f352239ebc8591e2e3d
     icon: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
     maintainers:
     - email: pete.wall@grafana.com
@@ -54,4 +54,4 @@ entries:
     urls:
     - https://yjinjo.github.io/helm-charts-repo/k8s-monitoring-0.10.3.tgz
     version: 0.10.3
-generated: "2024-02-27T10:14:23.783199913Z"
+generated: "2024-02-27T10:37:29.140498588Z"
