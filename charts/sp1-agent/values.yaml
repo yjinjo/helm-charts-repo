@@ -894,7 +894,7 @@ prometheus-node-exporter:
   # -- Should this helm chart deploy Node Exporter to the cluster.
   # Set this to false if your cluster already has Node Exporter, or if you do
   # not want to scrape metrics from Node Exporter.
-  enabled: false
+  enabled: true
   # @ignored - Only select Linux nodes
   nodeSelector:
     kubernetes.io/os: linux
