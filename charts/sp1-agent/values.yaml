@@ -13,7 +13,7 @@ externalServices:
   # Connection information for Prometheus
   prometheus:
     # -- Prometheus host where metrics will be sent
-    host: "https://mimir-gw.stargate.spaceone.dev"
+    host: "https://mimir.kr1.api.spaceone.megazone.io"
     # -- The key for the host property in the secret
     hostKey: host
 
@@ -27,7 +27,7 @@ externalServices:
     # -- Prometheus metrics query endpoint. Preset for Grafana Cloud Metrics instances.
     queryEndpoint: /api/prom/api/v1/query
     # -- Prometheus metrics write endpoint. Preset for Grafana Cloud Metrics instances.
-    writeEndpoint: /api/prom/push
+    writeEndpoint: /api/v1/push
     # -- Custom labels to be added to all time series
     externalLabels: {}
     # -- Rule blocks to be added to the [write_relabel_config block](https://grafana.com/docs/agent/latest/flow/reference/components/prometheus.remote_write/#write_relabel_config-block) of the prometheus.remote_write component.
@@ -975,7 +975,7 @@ opencost:
         # @ignored -- This skips including these values in README.md
         enabled: true
         # -- The URL for Prometheus queries. It should match externalService.prometheus.host + "/api/prom"
-        url: "https://mimir-gw.stargate.spaceone.dev/prometheus"
+        url: "https://mimir.kr1.api.spaceone.megazone.io/prometheus"
       # @ignored -- This skips including these values in README.md
       internal:
         enabled: false
